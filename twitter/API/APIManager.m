@@ -9,8 +9,8 @@
 #import "APIManager.h"
 
 static NSString * const baseURLString = @"https://api.twitter.com";
-static NSString * const consumerKey = // consumer key here
-static NSString * const consumerSecret = // put consumer secret key here
+static NSString * const consumerKey;
+static NSString * const consumerSecret;
 
 @interface APIManager()
 
@@ -29,9 +29,17 @@ static NSString * const consumerSecret = // put consumer secret key here
 
 - (instancetype)init {
     
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"Keys" ofType: @"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+    NSString *key= [dict objectForKey: @"consumer_Key"];
+    NSString *secret = [dict objectForKey: @"consumer_Secret"];
+
+    
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
-    NSString *key = consumerKey;
-    NSString *secret = consumerSecret;
+    // i removed
+    //NSString *key = consumerKey;
+    //NSString *secret = consumerSecret;
     // Check for launch arguments override
     if ([[NSUserDefaults standardUserDefaults] stringForKey:@"consumer-key"]) {
         key = [[NSUserDefaults standardUserDefaults] stringForKey:@"consumer-key"];
