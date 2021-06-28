@@ -30,6 +30,10 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+    
     [self loadTweets];
         
     // Get timeline
@@ -65,6 +69,19 @@
     }];
     
 }
+
+// Makes a network request to get updated data
+// Updates the tableView with the new data
+// Hides the RefreshControl
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+
+    // gets data and reloads table view
+    [self loadTweets];
+         
+    // Tell the refreshControl to stop spinning
+    [refreshControl endRefreshing];
+}
+
 
 - (IBAction)logoutButtonPressed:(id)sender {
     NSLog(@"%s", "logout");
