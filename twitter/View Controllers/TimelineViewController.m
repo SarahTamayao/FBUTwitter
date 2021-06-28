@@ -98,6 +98,11 @@
     // setting cell views from tweet object
     cell.authorLabel.text = tweet.user.name;
     cell.tweetTextLabel.text = tweet.text;
+
+    if (tweet.user.screenName) {
+        cell.usernameLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
+    }
+    cell.timeLabel.text = tweet.createdAtString;
     [cell.retweetButton setTitle:[@(tweet.retweetCount) stringValue] forState:UIControlStateNormal];
     [cell.favButton setTitle:[@(tweet.favoriteCount) stringValue] forState:UIControlStateNormal];
         
