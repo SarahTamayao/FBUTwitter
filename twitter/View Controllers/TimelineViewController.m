@@ -10,10 +10,11 @@
 #import "APIManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "ComposeViewController.h"
 #import "TweetCell.h"
 #import "Tweet.h"
 
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) NSMutableArray *arrayOfTweets; //STRONG DIFFERENT FROM WEAK
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -35,21 +36,6 @@
     [self.tableView insertSubview:refreshControl atIndex:0];
     
     [self loadTweets];
-        
-    // Get timeline
-    
-    /*
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
-        if (tweets) {
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (Tweet *tweet in tweets) {
-                NSLog(@"%@", tweet.text);
-            }
-            self.arrayOfTweets = tweets;
-        } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
-        }
-    }]; */
 }
 
 - (void) loadTweets {
@@ -57,9 +43,6 @@
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-//            for (Tweet *tweet in tweets) {
-//                NSLog(@"%@", tweet.text);
-//            }
             
             self.arrayOfTweets = tweets;
             [self.tableView reloadData];
@@ -135,17 +118,27 @@
     return cell;
 }
 
+- (void)didTweet:(Tweet *)tweet {
+    [self.arrayOfTweets addObject:tweet];
+    [self loadTweets];
+    [self.tableView reloadData];
+}
 
 
-/*
+
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
+     
+     UINavigationController *navigationController = [segue destinationViewController];
+     ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+     composeController.delegate = self;
  }
- */
+
 
 
 

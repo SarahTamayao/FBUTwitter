@@ -24,14 +24,15 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 - (IBAction)tweetButtonTapped:(id)sender {
-        
-    [[APIManager shared] postStatusWithText:self.tweetTextView.text completion:^(Tweet *tweet, NSError *error) {
-        if(tweet) {
-            NSLog(@"successfully posted tweet");
+    
+    [[APIManager shared]postStatusWithText:self.tweetTextView.text completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+            NSLog(@"Error composing Tweet: %@", error.localizedDescription);
+        }
+        else{
+            [self.delegate didTweet:tweet];
+            NSLog(@"Compose Tweet Success!");
             [self dismissViewControllerAnimated:true completion:nil];
-            
-        } else {
-            NSLog(@"error posting tweet: %@", error.localizedDescription);
         }
     }];
     
