@@ -121,6 +121,9 @@
                                                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <state key="selected" image="retweet-icon-green"/>
+                                                    <connections>
+                                                        <action selector="didTapRetweet:" destination="401-Ki-2dk" eventType="touchUpInside" id="dZD-Re-xPP"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03K-Dk-Iot">
                                                     <rect key="frame" x="229" y="142" width="63" height="30"/>
@@ -225,9 +228,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jox-rg-9wi">
-                                <rect key="frame" x="0.0" y="88" width="414" height="228"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jox-rg-9wi">
+                                <rect key="frame" x="0.0" y="76" width="414" height="712"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -236,6 +238,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BYw-VA-Fm0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jox-rg-9wi" firstAttribute="leading" secondItem="4GE-7F-0Be" secondAttribute="leading" id="9O6-70-l91"/>
+                            <constraint firstAttribute="trailing" secondItem="Jox-rg-9wi" secondAttribute="trailing" id="ONc-t4-f0R"/>
+                            <constraint firstItem="BYw-VA-Fm0" firstAttribute="bottom" secondItem="Jox-rg-9wi" secondAttribute="bottom" constant="20" id="SQu-fH-nyt"/>
+                            <constraint firstItem="Jox-rg-9wi" firstAttribute="top" secondItem="BYw-VA-Fm0" secondAttribute="top" constant="20" id="lWH-zP-Rmy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0UX-7B-D7S">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="close-icon" id="a5U-dI-AI9">
@@ -255,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t18-xi-NTr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3149" y="35"/>
+            <point key="canvasLocation" x="3147.826086956522" y="34.821428571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">
