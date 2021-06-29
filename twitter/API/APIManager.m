@@ -112,16 +112,21 @@ static NSString * const consumerSecret;
 // Send a network request to the POST retweets/create endpoint passing in the ID of the tweet to be retweeted
 - (void)retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
     
-    // NSString *baseURLString = @"1.1/statuses/retweet/:";
-    // NSString *secondString = [baseURLString stringByAppendingString:tweet.idStr];
-    // NSString *urlString = [secondString stringByAppendingString:@".json"];
-    
     NSString *urlString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/statuses/retweet/%@.json", tweet.idStr];
     
-    NSLog(@"%@", urlString);
+    [self POST:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
+        Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
+        completion(tweet, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
 
-    // NSString *urlString = @"1.1/statuses/retweet/:id.json";
-    // NSDictionary *parameters = @{@"id": tweet.idStr};
+// Send a network request to the POST retweets/create endpoint passing in the ID of the tweet to be unretweeted
+- (void)unretweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/statuses/unretweet/%@.json", tweet.idStr];
+    
     [self POST:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
         Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
         completion(tweet, nil);

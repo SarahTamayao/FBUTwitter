@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "ComposeViewController.h"
+#import "DetailsViewController.h"
 #import "TweetCell.h"
 #import "Tweet.h"
 
@@ -101,7 +102,9 @@
     
     // buttons selected or not
     if (cell.tweet.favorited) cell.favButton.selected = true;
-    if (cell.tweet.retweeted) cell.replyButton.selected = true;
+    else cell.favButton.selected = false;
+    if (cell.tweet.retweeted) cell.retweetButton.selected = true;
+    else cell.retweetButton.selected = false;
     
 
     if (tweet.user.screenName) {
@@ -140,9 +143,20 @@
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
      
-     UINavigationController *navigationController = [segue destinationViewController];
-     ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-     composeController.delegate = self;
+     if ([segue.identifier isEqual:@"composeTweet"]) {
+         UINavigationController *navigationController = [segue destinationViewController];
+         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+         composeController.delegate = self;
+     }
+     else {
+         NSLog(@"viewing details");
+         UITableViewCell *tappedCell = sender;
+         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+         Tweet *tweet = self.arrayOfTweets[indexPath.row];
+         
+         DetailsViewController *detailsViewController = [segue destinationViewController];
+         detailsViewController.tweet = tweet;
+     }
  }
 
 

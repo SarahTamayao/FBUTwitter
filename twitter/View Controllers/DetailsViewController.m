@@ -1,29 +1,46 @@
 //
-//  TweetCell.m
+//  DetailsViewController.m
 //  twitter
 //
-//  Created by Ava Crnkovic-Rubsamen on 6/28/21.
+//  Created by Ava Crnkovic-Rubsamen on 6/29/21.
 //  Copyright © 2021 Emerson Malca. All rights reserved.
 //
 
-#import "TweetCell.h"
-#import "APIManager.h"
+#import "DetailsViewController.h"
 #import "Tweet.h"
+#import "APIManager.h"
 
-@implementation TweetCell
+@interface DetailsViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tweetContentLabel;
+@property (weak, nonatomic) IBOutlet UIButton *favButton;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
+@end
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+@implementation DetailsViewController
 
-    // Configure the view for the selected state
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    self.authorLabel.text = self.tweet.user.name;
+    self.tweetContentLabel.text = self.tweet.text;
+    
+    self.usernameLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
+    // self.timeLabel.text = [@"・" stringByAppendingString:self.tweet.createdAtString];
+    
+    // adding profile image
+    NSString *URLString = self.tweet.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    self.profileImageView.image = [[UIImage alloc] initWithData:urlData];
+    
+    [self refreshData];
 }
 - (IBAction)didTapFavorite:(id)sender {
-    
     if (self.tweet.favorited) { // unfavorite it
         
         // TODO: Send a POST request to the POST favorites/create endpoint
@@ -60,11 +77,9 @@
          }];
         
     }
-    
-    
 }
 - (IBAction)didTapRetweet:(id)sender {
-    
+
     if (self.tweet.retweeted) { // unretweet it
         // TODO: Send a POST request to the POST retweets/create endpoint
         [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
@@ -98,9 +113,8 @@
          }];
         
     }
-    
-    
-    
+        
+
 }
 
 -(void) refreshData {
@@ -111,5 +125,16 @@
     [self.retweetButton setTitle:[@(self.tweet.retweetCount) stringValue] forState:UIControlStateNormal];
     [self.favButton setTitle:[@(self.tweet.favoriteCount) stringValue] forState:UIControlStateNormal];
 }
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
