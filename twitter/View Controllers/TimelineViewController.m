@@ -38,6 +38,10 @@
     
     [self loadTweets];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    // so that if you favorite/unfavorite/retweet/unretweet a tweet from the details view it will appear correctly immediately when you return to the home timeline
+    [self.tableView reloadData];
+}
 
 - (void) loadTweets {
     // Get timeline
@@ -130,7 +134,7 @@
 - (void)didTweet:(Tweet *)tweet {
     [self.arrayOfTweets addObject:tweet];
     [self loadTweets];
-    [self.tableView reloadData];
+    // [self.tableView reloadData];
 }
 
 

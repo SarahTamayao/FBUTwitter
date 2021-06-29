@@ -40,6 +40,7 @@
     
     [self refreshData];
 }
+
 - (IBAction)didTapFavorite:(id)sender {
     if (self.tweet.favorited) { // unfavorite it
         
