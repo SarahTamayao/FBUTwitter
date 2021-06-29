@@ -107,7 +107,8 @@
     if (tweet.user.screenName) {
         cell.usernameLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
     }
-    cell.timeLabel.text = tweet.createdAtString;
+    if (tweet) cell.timeLabel.text = [@"・" stringByAppendingString:tweet.createdAtString];
+    
     [cell.retweetButton setTitle:[@(tweet.retweetCount) stringValue] forState:UIControlStateNormal];
     [cell.favButton setTitle:[@(tweet.favoriteCount) stringValue] forState:UIControlStateNormal];
         
