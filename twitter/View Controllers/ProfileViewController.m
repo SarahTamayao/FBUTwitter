@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numFollowing;
 @property (weak, nonatomic) IBOutlet UILabel *numFollowers;
 @property (strong, nonatomic) NSDictionary *userDict;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end
 
@@ -38,12 +39,19 @@
             self.usernameLabel.text = userData[@"screen_name"];
             
             // adding profile image
-            /*
-            NSString *URLString = userData[@"profile_image_url"];
-            NSURL *url = [NSURL URLWithString:URLString];
-            NSData *urlData = [NSData dataWithContentsOfURL:url];
-            self.profileImageView.image = [[UIImage alloc] initWithData:urlData];
-             */
+            NSString *profURLString = userData[@"profile_image_url_https"];
+            NSURL *profURL = [NSURL URLWithString:profURLString];
+            NSData *profURLData = [NSData dataWithContentsOfURL:profURL];
+            self.profileImageView.image = [[UIImage alloc] initWithData:profURLData];
+            
+            // adding background image
+            NSString *backURLString = userData[@"profile_background_image_url_https"];
+            if ((NSNull *)backURLString != [NSNull null]) {
+                NSLog(@"%@", @"here");
+                NSURL *backURL = [NSURL URLWithString:backURLString];
+                NSData *backURLData = [NSData dataWithContentsOfURL:backURL];
+                self.backgroundImageView.image = [[UIImage alloc] initWithData:backURLData];
+            }
             
         } else {
             NSLog(@"error getting user data: %@", error.localizedDescription);
