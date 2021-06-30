@@ -6,6 +6,9 @@
 //  Copyright © 2021 Emerson Malca. All rights reserved.
 //
 
+// tap user's profile photo to get to their profile page (UserViewController)
+// right tab bar item get's to logged in user's profile page (ProfileViewController)
+
 #import "ProfileViewController.h"
 #import "User.h"
 #import "APIManager.h"

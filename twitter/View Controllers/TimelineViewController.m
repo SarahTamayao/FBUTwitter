@@ -12,10 +12,11 @@
 #import "LoginViewController.h"
 #import "ComposeViewController.h"
 #import "DetailsViewController.h"
+#import "UserViewController.h"
 #import "TweetCell.h"
 #import "Tweet.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <TweetCellDelegate, ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) NSMutableArray *arrayOfTweets; //STRONG DIFFERENT FROM WEAK
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -104,29 +105,31 @@
     cell.authorLabel.text = tweet.user.name;
     cell.tweetTextLabel.text = tweet.text;
     
-    // buttons selected or not
+    // buttons selected or not, add correct counts to button labels
     if (cell.tweet.favorited) cell.favButton.selected = true;
     else cell.favButton.selected = false;
     if (cell.tweet.retweeted) cell.retweetButton.selected = true;
     else cell.retweetButton.selected = false;
+    [cell.retweetButton setTitle:[@(tweet.retweetCount) stringValue] forState:UIControlStateNormal];
+    [cell.favButton setTitle:[@(tweet.favoriteCount) stringValue] forState:UIControlStateNormal];
     
 
+    // screen name and time label
     if (tweet.user.screenName) {
         cell.usernameLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
     }
     if (tweet) cell.timeLabel.text = [@"・" stringByAppendingString:tweet.createdAtString];
-    
-    [cell.retweetButton setTitle:[@(tweet.retweetCount) stringValue] forState:UIControlStateNormal];
-    [cell.favButton setTitle:[@(tweet.favoriteCount) stringValue] forState:UIControlStateNormal];
-        
-    // TO DO: figure out replies button #
-
     
     // adding profile image
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     cell.profileImageView.image = [[UIImage alloc] initWithData:urlData];
+    
+    // assign the delegate property of the cell to the view controller
+    cell.delegate = self;
+    
+    // TO DO: figure out replies button #
     
     return cell;
 }
@@ -137,7 +140,11 @@
     // [self.tableView reloadData];
 }
 
-
+// using tap gesture recognizer to perform segue to UserViewController (user's profile)
+- (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user{
+    // TODO: Perform segue to profile view controller
+    [self performSegueWithIdentifier:@"showUserProfile" sender:user];
+}
 
 
  #pragma mark - Navigation
@@ -152,7 +159,7 @@
          ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
          composeController.delegate = self;
      }
-     else {
+     else if ([segue.identifier isEqual:@"viewTweet"]) {
          NSLog(@"viewing details");
          UITableViewCell *tappedCell = sender;
          NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
@@ -161,10 +168,11 @@
          DetailsViewController *detailsViewController = [segue destinationViewController];
          detailsViewController.tweet = tweet;
      }
+     else if ([segue.identifier isEqual:@"showUserProfile"]){
+         UserViewController *userViewController = [segue destinationViewController];
+         userViewController.user = sender;
+     }
  }
-
-
-
 
 
 @end
