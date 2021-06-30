@@ -48,6 +48,8 @@
             NSURL *profURL = [NSURL URLWithString:profURLString];
             NSData *profURLData = [NSData dataWithContentsOfURL:profURL];
             self.profileImageView.image = [[UIImage alloc] initWithData:profURLData];
+            self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.size.width / 2;
+
             
             // adding background image
             NSString *backURLString = userData[@"profile_banner_url"];

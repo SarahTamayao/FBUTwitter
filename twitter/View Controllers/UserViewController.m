@@ -32,12 +32,26 @@
     self.nameLabel.text = self.user.name;
     self.usernameLabel.text = [@"@" stringByAppendingString:self.user.screenName];
     self.taglineLabel.text = self.user.tagline;
+    self.numFollowers.text = self.user.numFollowers;
+    self.numFollowing.text = self.user.numFollowing;
+    self.numTweets.text = self.user.numTweets;
     
     // adding profile image
     NSString *URLString = self.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     self.profileImageView.image = [[UIImage alloc] initWithData:urlData];
+    self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.size.width / 2;
+    
+    
+    // adding background image
+    NSString *backURLString = self.user.backgroundPicture;
+    if ((NSNull *)backURLString != [NSNull null]) {
+        NSLog(@"%@", @"here");
+        NSURL *backURL = [NSURL URLWithString:backURLString];
+        NSData *backURLData = [NSData dataWithContentsOfURL:backURL];
+        self.backgroundImageView.image = [[UIImage alloc] initWithData:backURLData];
+    }
 }
 
 /*

@@ -125,6 +125,8 @@
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     cell.profileImageView.image = [[UIImage alloc] initWithData:urlData];
+    cell.profileImageView.layer.cornerRadius = cell.profileImageView.bounds.size.width / 2;
+
     
     // assign the delegate property of the cell to the view controller
     cell.delegate = self;

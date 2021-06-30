@@ -53,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKJ-HH-8tn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="514" y="-790"/>
+            <point key="canvasLocation" x="512" y="-754"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="fyp-Jb-kw6">
@@ -90,7 +90,6 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ech-iw-yH5">
                                 <rect key="frame" x="20" y="116" width="60" height="60"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="jCY-r4-ebt"/>
                                     <constraint firstAttribute="height" constant="60" id="kEG-G5-I9T"/>
@@ -179,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q61-Ge-tSW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="2085"/>
+            <point key="canvasLocation" x="616" y="2083"/>
         </scene>
         <!--Home Timeline-->
         <scene sceneID="1Tv-nE-1AW">
@@ -360,7 +359,6 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wdG-iS-a7p">
                                 <rect key="frame" x="20" y="76" width="70" height="70"/>
-                                <color key="backgroundColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="C6L-hL-fdd"/>
                                     <constraint firstAttribute="width" constant="70" id="ZKm-Yf-ZQZ"/>
@@ -454,7 +452,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kX9-oV-R00" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-155" y="2085"/>
+            <point key="canvasLocation" x="-146" y="2083"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="Pc4-4Y-kyl">
@@ -498,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t18-xi-NTr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-936" y="2798"/>
+            <point key="canvasLocation" x="-926" y="2796"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="WUT-Ke-VeR">
@@ -535,7 +533,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGt-pb-1b4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-935" y="2085"/>
+            <point key="canvasLocation" x="-926" y="2083"/>
         </scene>
         <!--Profile-->
         <scene sceneID="HCv-RI-fbz">
@@ -566,7 +564,6 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="au0-bR-tGm">
                                 <rect key="frame" x="20" y="116" width="60" height="60"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Yoc-aE-5Oi"/>
                                     <constraint firstAttribute="width" constant="60" id="wIY-0m-hUk"/>
@@ -671,7 +668,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzk-LC-f4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1250.7246376811595" y="1350.6696428571429"/>
+            <point key="canvasLocation" x="1193" y="1351"/>
+        </scene>
+        <!--Mentions View Controller-->
+        <scene sceneID="G9X-Iq-CZi">
+            <objects>
+                <viewController id="Vfj-xa-rGP" customClass="MentionsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GQV-Y5-Z1z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mentions View Controller!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVP-zO-5yv">
+                                <rect key="frame" x="107" y="411" width="201" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ee9-m1-dgb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5zI-wv-xM0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffO-s0-wYT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="1351"/>
         </scene>
         <!--Profile-->
         <scene sceneID="0dv-bk-e21">
@@ -690,7 +712,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5u-II-A7y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1251" y="668"/>
+            <point key="canvasLocation" x="1193" y="668"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="BsS-Re-EMf">
@@ -703,12 +725,32 @@
                     </tabBar>
                     <connections>
                         <segue destination="FTQ-G1-N2b" kind="relationship" relationship="viewControllers" id="VuM-Lo-rY1"/>
+                        <segue destination="GyK-V0-aXr" kind="relationship" relationship="viewControllers" id="6YX-iH-606"/>
                         <segue destination="vGo-Nc-RIO" kind="relationship" relationship="viewControllers" id="eeY-YM-Vyh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAR-3z-vYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="513" y="-71"/>
+        </scene>
+        <!--Mentions-->
+        <scene sceneID="4hc-si-grw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GyK-V0-aXr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Mentions" image="notification-icon" id="Dog-a4-2uf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CHr-Al-1cX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vfj-xa-rGP" kind="relationship" relationship="rootViewController" id="rMn-aV-J8k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kWD-LU-1BR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="513" y="668"/>
         </scene>
     </scenes>
     <resources>
@@ -719,15 +761,13 @@
         <image name="favor-icon-red" width="30" height="30"/>
         <image name="home-icon" width="30" height="30"/>
         <image name="message-icon" width="30" height="30"/>
+        <image name="notification-icon" width="30" height="30"/>
         <image name="profile-Icon" width="26" height="26"/>
         <image name="reply-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
         <image name="retweet-icon-green" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
