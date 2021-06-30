@@ -18,7 +18,7 @@
 
 @interface TimelineViewController () <TweetCellDelegate, ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
-@property (strong, nonatomic) NSMutableArray *arrayOfTweets; //STRONG DIFFERENT FROM WEAK
+@property (strong, nonatomic) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 

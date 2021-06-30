@@ -151,6 +151,22 @@ static NSString * const consumerSecret;
     }];
 }
 
+// network request to get mentions timeline (last 20 mentions)
+// currently treating mentions as tweets
+- (void)getMentionsTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion {
+    
+    // Create a GET Request
+    [self GET:@"1.1/statuses/mentions_timeline.json"
+       parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
+           // Success
+           NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
+           completion(tweets, nil);
+       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+           // There was a problem
+           completion(nil, error);
+    }];
+}
+
 
 
 @end
