@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numFollowers;
 @property (strong, nonatomic) NSDictionary *userDict;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UILabel *taglineLabel;
 
 @end
 
@@ -33,10 +34,11 @@
             NSLog(@"successfully loaded user data");
             NSLog(@"%@", userData);
             self.numFollowers.text = [@([userData[@"followers_count"] intValue]) stringValue];
-            self.numFollowing.text = [@([userData[@"following"] intValue]) stringValue];
+            self.numFollowing.text = [@([userData[@"friends_count"] intValue]) stringValue];
             self.numTweets.text = [@([userData[@"statuses_count"] intValue]) stringValue];
             self.nameLabel.text = userData[@"name"];
-            self.usernameLabel.text = userData[@"screen_name"];
+            self.usernameLabel.text = [@"@" stringByAppendingString:userData[@"screen_name"]];
+            self.taglineLabel.text = userData[@"description"];
             
             // adding profile image
             NSString *profURLString = userData[@"profile_image_url_https"];
@@ -45,7 +47,7 @@
             self.profileImageView.image = [[UIImage alloc] initWithData:profURLData];
             
             // adding background image
-            NSString *backURLString = userData[@"profile_background_image_url_https"];
+            NSString *backURLString = userData[@"profile_banner_url"];
             if ((NSNull *)backURLString != [NSNull null]) {
                 NSLog(@"%@", @"here");
                 NSURL *backURL = [NSURL URLWithString:backURLString];
