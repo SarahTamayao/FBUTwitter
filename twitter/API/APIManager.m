@@ -135,4 +135,22 @@ static NSString * const consumerSecret;
     }];
 }
 
+// send network request to get current user's name/username/info for profile view
+- (void)getUserInfo:(void(^)(NSDictionary *userData, NSError *error))completion {
+    
+    // Create a GET Request
+    NSDictionary *parameters = @{@"include_email": @"false"};
+    [self GET:@"1.1/account/verify_credentials.json"
+       parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable dataDictionary) {
+           // Success
+           // NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
+           completion(dataDictionary, nil);
+       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+           // There was a problem
+           completion(nil, error);
+    }];
+}
+
+
+
 @end
