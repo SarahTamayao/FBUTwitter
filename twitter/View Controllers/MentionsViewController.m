@@ -50,7 +50,7 @@
     
     // get tweet object
     Tweet *mention = self.arrayOfMentions[indexPath.row];
-    //cell.tweet = tweet;
+    cell.mention = mention;
     
     // setting cell views from tweet object
     cell.nameLabel.text = mention.user.name;
@@ -64,6 +64,15 @@
     [cell.retweetButton setTitle:[@(mention.retweetCount) stringValue] forState:UIControlStateNormal];
     [cell.favButton setTitle:[@(mention.favoriteCount) stringValue] forState:UIControlStateNormal];
     
+    // grey out & disable the retweet button if the user has a protected account
+    if (cell.mention.user.protectedAccount) {
+        [cell.retweetButton setEnabled:NO];
+        cell.retweetButton.imageView.alpha = 0.5;
+    }
+    else {
+        [cell.retweetButton setEnabled:YES];
+        cell.retweetButton.imageView.alpha = 1;
+    }
     
     // screen name and time label
     if (mention.user.screenName) {

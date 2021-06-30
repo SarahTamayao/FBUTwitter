@@ -158,10 +158,13 @@ static NSString * const consumerSecret;
     // Create a GET Request
     [self GET:@"1.1/statuses/mentions_timeline.json"
        parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
-           // Success
-           NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
-           completion(tweets, nil);
-       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // success
+        NSLog(@"%@", tweetDictionaries);
+        
+        NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
+        completion(tweets, nil);
+       }
+      failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
            // There was a problem
            completion(nil, error);
     }];

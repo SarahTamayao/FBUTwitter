@@ -225,16 +225,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97w-zi-9MU">
-                                                    <rect key="frame" x="76" y="142" width="60" height="30"/>
+                                                    <rect key="frame" x="76" y="142" width="41" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="afQ-hG-VJF"/>
                                                     </constraints>
-                                                    <state key="normal" title="100" image="reply-icon">
+                                                    <state key="normal" title="0" image="reply-icon">
                                                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDU-du-ZuV">
-                                                    <rect key="frame" x="146" y="142" width="63" height="30"/>
+                                                    <rect key="frame" x="127" y="142" width="63" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="EDr-oP-GyJ"/>
                                                     </constraints>
@@ -247,7 +247,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03K-Dk-Iot">
-                                                    <rect key="frame" x="219" y="142" width="63" height="30"/>
+                                                    <rect key="frame" x="200" y="142" width="63" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Kqu-uA-wbt"/>
                                                     </constraints>
@@ -260,7 +260,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJy-72-Zge">
-                                                    <rect key="frame" x="292" y="142" width="30" height="30"/>
+                                                    <rect key="frame" x="273" y="142" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="3ge-KW-SD6"/>
                                                     </constraints>
@@ -724,16 +724,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytY-P5-i2q">
-                                                    <rect key="frame" x="96" y="144" width="60" height="30"/>
+                                                    <rect key="frame" x="96" y="144" width="41" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="xkT-GJ-pF2"/>
                                                     </constraints>
-                                                    <state key="normal" title="100" image="reply-icon">
+                                                    <state key="normal" title="0" image="reply-icon">
                                                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0Z-SQ-ou7">
-                                                    <rect key="frame" x="166" y="144" width="63" height="30"/>
+                                                    <rect key="frame" x="147" y="144" width="63" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="cFN-kA-9gM"/>
                                                     </constraints>
@@ -741,9 +741,12 @@
                                                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <state key="selected" image="retweet-icon-green"/>
+                                                    <connections>
+                                                        <action selector="didTapRetweet:" destination="tNx-vV-zqT" eventType="touchUpInside" id="Eav-AD-yhE"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6h-vL-g8Q">
-                                                    <rect key="frame" x="239" y="144" width="63" height="30"/>
+                                                    <rect key="frame" x="220" y="144" width="63" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="1E6-3G-bLg"/>
                                                     </constraints>
@@ -751,9 +754,12 @@
                                                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <state key="selected" image="favor-icon-red"/>
+                                                    <connections>
+                                                        <action selector="didTapFavorite:" destination="tNx-vV-zqT" eventType="touchUpInside" id="Wwt-DD-iNn"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeD-2g-Muh">
-                                                    <rect key="frame" x="312" y="144" width="30" height="30"/>
+                                                    <rect key="frame" x="293" y="144" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Kvc-D4-7JC"/>
                                                     </constraints>

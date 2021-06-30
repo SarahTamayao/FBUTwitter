@@ -21,6 +21,7 @@
         self.numFollowers = [@([dictionary[@"followers_count"] intValue]) stringValue];
         self.numFollowing = [@([dictionary[@"friends_count"] intValue]) stringValue];
         self.numTweets = [@([dictionary[@"statuses_count"] intValue]) stringValue];
+        self.protectedAccount = [dictionary[@"protected"] boolValue];
     }
     return self;
 }

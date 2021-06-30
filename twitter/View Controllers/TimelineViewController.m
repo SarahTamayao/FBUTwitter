@@ -113,6 +113,16 @@
     [cell.retweetButton setTitle:[@(tweet.retweetCount) stringValue] forState:UIControlStateNormal];
     [cell.favButton setTitle:[@(tweet.favoriteCount) stringValue] forState:UIControlStateNormal];
     
+    // grey out & disable the retweet button if the user has a protected account
+    if (cell.tweet.user.protectedAccount) {
+        [cell.retweetButton setEnabled:NO];
+        cell.retweetButton.imageView.alpha = 0.5;
+    }
+    else {
+        [cell.retweetButton setEnabled:YES];
+        cell.retweetButton.imageView.alpha = 1;
+    }
+    
 
     // screen name and time label
     if (tweet.user.screenName) {

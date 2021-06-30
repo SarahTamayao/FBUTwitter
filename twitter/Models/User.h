@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) NSString *numTweets;
 @property (weak, nonatomic) NSString *numFollowing;
 @property (weak, nonatomic) NSString *numFollowers;
+@property (nonatomic) BOOL protectedAccount;
 
 @property (nonatomic, strong) NSString *profilePicture;
 @property (nonatomic, strong) NSString *backgroundPicture;
