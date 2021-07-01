@@ -27,13 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+        
     self.authorLabel.text = self.tweet.user.name;
     self.tweetTextView.text = self.tweet.text;
     self.timeLabel.text = self.tweet.detailsViewDate;
     
     self.usernameLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
-    // self.timeLabel.text = [@"・" stringByAppendingString:self.tweet.createdAtString];
     
     // adding profile image
     NSString *URLString = self.tweet.user.profilePicture;

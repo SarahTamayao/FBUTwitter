@@ -106,6 +106,7 @@
     // cell.tweetTextLabel.text = tweet.text;
     cell.tweetTextView.text = tweet.text;
     
+    
     // buttons selected or not, add correct counts to button labels
     if (cell.tweet.favorited) cell.favButton.selected = true;
     else cell.favButton.selected = false;
@@ -159,6 +160,12 @@
     [self performSegueWithIdentifier:@"showUserProfile" sender:user];
 }
 
+// performing segue to compose view controller when the user taps reply
+- (void)tweetCell:(TweetCell *)tweetCell didReply:(Tweet *)tweet{
+    // TODO: Perform segue to profile view controller
+    [self performSegueWithIdentifier:@"composeTweet" sender:tweet];
+}
+
 // infinite scrolling method
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row + 1 == [self.arrayOfTweets count]){
@@ -177,9 +184,13 @@
  // Pass the selected object to the new view controller.
      
      if ([segue.identifier isEqual:@"composeTweet"]) {
+         NSLog(@"%@", sender);
          UINavigationController *navigationController = [segue destinationViewController];
          ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
          composeController.delegate = self;
+         if ([sender isKindOfClass:[Tweet class]]) {
+             composeController.repliedToTweet = sender;
+         }
      }
      else if ([segue.identifier isEqual:@"viewTweet"]) {
          NSLog(@"viewing details");

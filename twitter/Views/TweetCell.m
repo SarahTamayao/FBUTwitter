@@ -121,5 +121,10 @@
     //TODO: Call method delegate
     [self.delegate tweetCell:self didTap:self.tweet.user];
 }
+- (IBAction)didTapReply:(id)sender {
+    [self.delegate tweetCell:self didReply:self.tweet];
+}
+
+
 
 @end

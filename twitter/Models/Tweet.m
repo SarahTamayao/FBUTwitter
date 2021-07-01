@@ -51,7 +51,7 @@
          formatter.dateStyle = NSDateFormatterNoStyle;
          formatter.timeStyle = NSDateFormatterShortStyle;
          NSString *time = [[formatter stringFromDate:date] stringByAppendingString:@"・"];
-         formatter.dateStyle = NSDateFormatterShortStyle;
+         formatter.dateStyle = NSDateFormatterMediumStyle;
          formatter.timeStyle = NSDateFormatterNoStyle;
          self.detailsViewDate = [time stringByAppendingString:[formatter stringFromDate:date]];
          

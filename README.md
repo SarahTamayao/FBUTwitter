@@ -61,6 +61,8 @@ GIF created with [Kap](https://getkap.co/).
 
 Describe any challenges encountered while building the app.
 
+I wanted to add the number of replies a tweet had to my tweet cell (along with # of favorites and # of retweets) but reply_count "is only available with the Premium and Enterprise tier products" and so I struggled with why it was returning 0 for a minute.
+
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.

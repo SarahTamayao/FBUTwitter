@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
 @property (weak, nonatomic) IBOutlet UILabel *characterCountLabel;
 
+
 @end
 
 @implementation ComposeViewController
@@ -20,6 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    if (self.repliedToTweet) {
+        NSString *username = [@"@" stringByAppendingString:self.repliedToTweet.user.screenName];
+        self.tweetTextView.text = [username stringByAppendingString:@" "];
+    }
+    
     
     self.tweetTextView.delegate = self;
     self.tweetTextView.layer.borderWidth = 1;
@@ -34,7 +41,11 @@
 }
 - (IBAction)tweetButtonTapped:(id)sender {
     
-    [[APIManager shared]postStatusWithText:self.tweetTextView.text completion:^(Tweet *tweet, NSError *error) {
+    NSString *repliedToTweetString = [NSString alloc];
+    if (self.repliedToTweet) repliedToTweetString = self.repliedToTweet.idStr;
+    else repliedToTweetString = @"";
+    
+    [[APIManager shared]postStatusWithText:self.tweetTextView.text inReply:repliedToTweetString completion:^(Tweet *tweet, NSError *error) {
         if(error){
             NSLog(@"Error composing Tweet: %@", error.localizedDescription);
         }

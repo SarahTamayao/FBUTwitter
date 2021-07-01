@@ -72,10 +72,14 @@ static NSString * const consumerSecret;
 }
 
 // TODO: Post Composed Tweet Method
-- (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion{
+- (void)postStatusWithText: (NSString *)text inReply:(NSString *)inReplyToID completion:(void (^)(Tweet *, NSError *)) completion {
     NSString *urlString = @"1.1/statuses/update.json";
-    NSDictionary *parameters = @{@"status": text};
+    NSDictionary *parameters;
     
+    
+    if ([inReplyToID length] == 0) parameters = @{@"status": text};
+    else parameters = @{@"status": text, @"in_reply_to_status_id": inReplyToID};
+        
     [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
         Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
         completion(tweet, nil);

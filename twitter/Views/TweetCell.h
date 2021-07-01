@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol TweetCellDelegate
 // TODO: Add required methods the delegate needs to implement
 - (void)tweetCell:(TweetCell *) tweetCell didTap: (User *)user;
+- (void)tweetCell:(TweetCell *) tweetCell didReply: (Tweet *)tweet;
 @end
 
 NS_ASSUME_NONNULL_END
