@@ -25,6 +25,16 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    [self getMentions];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+    
+}
+
+-(void) getMentions {
+    
     // Do any additional setup after loading the view.
     [[APIManager shared] getMentionsTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
@@ -35,6 +45,16 @@
             NSLog(@"error getting home timeline: %@", error.localizedDescription);
         }
     }];
+    
+}
+
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+
+    // gets data and reloads table view
+    [self getMentions];
+         
+    // Tell the refreshControl to stop spinning
+    [refreshControl endRefreshing];
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

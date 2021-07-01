@@ -39,6 +39,7 @@
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     self.profileImageView.image = [[UIImage alloc] initWithData:urlData];
+    self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.size.width / 2;
     
     [self refreshData];
 }
