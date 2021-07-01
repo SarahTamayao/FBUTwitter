@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
@@ -29,6 +30,7 @@
     
     self.authorLabel.text = self.tweet.user.name;
     self.tweetTextView.text = self.tweet.text;
+    self.timeLabel.text = self.tweet.detailsViewDate;
     
     self.usernameLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
     // self.timeLabel.text = [@"・" stringByAppendingString:self.tweet.createdAtString];

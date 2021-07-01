@@ -44,12 +44,17 @@
          formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
          // Convert String to Date
          NSDate *date = [formatter dateFromString:createdAtOriginalString];
-         // Configure output format
+         // time stamp for timeline
          self.createdAtString = date.shortTimeAgoSinceNow;
-         // formatter.dateStyle = NSDateFormatterShortStyle;
-         // formatter.timeStyle = NSDateFormatterNoStyle;
-         // Convert Date to String
-         // self.createdAtString = [formatter stringFromDate:date];
+         
+         // time stamp for details view: 3:28PM・6/30/21
+         formatter.dateStyle = NSDateFormatterNoStyle;
+         formatter.timeStyle = NSDateFormatterShortStyle;
+         NSString *time = [[formatter stringFromDate:date] stringByAppendingString:@"・"];
+         formatter.dateStyle = NSDateFormatterShortStyle;
+         formatter.timeStyle = NSDateFormatterNoStyle;
+         self.detailsViewDate = [time stringByAppendingString:[formatter stringFromDate:date]];
+         
      }
      return self;
  }
