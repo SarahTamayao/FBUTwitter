@@ -54,7 +54,7 @@
     
     // setting cell views from tweet object
     cell.nameLabel.text = mention.user.name;
-    cell.tweetContentLabel.text = mention.text;
+    cell.tweetTextView.text = mention.text;
     
     // buttons selected or not, add correct counts to button labels
     if (cell.mention.favorited) cell.favButton.selected = true;

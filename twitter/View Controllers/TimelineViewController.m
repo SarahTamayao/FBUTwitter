@@ -103,7 +103,8 @@
     
     // setting cell views from tweet object
     cell.authorLabel.text = tweet.user.name;
-    cell.tweetTextLabel.text = tweet.text;
+    // cell.tweetTextLabel.text = tweet.text;
+    cell.tweetTextView.text = tweet.text;
     
     // buttons selected or not, add correct counts to button labels
     if (cell.tweet.favorited) cell.favButton.selected = true;
