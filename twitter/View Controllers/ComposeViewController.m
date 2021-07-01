@@ -11,6 +11,7 @@
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
+@property (weak, nonatomic) IBOutlet UILabel *characterCountLabel;
 
 @end
 
@@ -19,6 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.tweetTextView.delegate = self;
+    self.tweetTextView.layer.borderWidth = 1;
+    UIColor *twitterBlue = [UIColor colorWithRed:29/255.0 green:161/255.0 blue:242/255.0 alpha:1.0];
+    self.tweetTextView.layer.borderColor = [twitterBlue CGColor];
+    self.tweetTextView.layer.cornerRadius = self.tweetTextView.bounds.size.height / 6;
+    self.tweetTextView.textContainer.lineFragmentPadding = 20;
+    self.characterCountLabel.textColor = twitterBlue;
 }
 - (IBAction)closeButtonTapped:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
@@ -36,6 +45,25 @@
         }
     }];
     
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    // TODO: Check the proposed new text character count
+    // Set the max character limit
+    NSInteger characterLimit = 140;
+
+    // Construct what the new text would be if we allowed the user's latest edit
+    NSString *newText = [self.tweetTextView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    // TODO: Update character count label
+    if (newText.length <= characterLimit) {
+        NSInteger charactersLeft = characterLimit - newText.length;
+        self.characterCountLabel.text = [NSString stringWithFormat:@"%lu", charactersLeft];
+    }
+
+    // TODO: Allow or disallow the new text
+    // Should the new text should be allowed? True/False
+    return newText.length <= characterLimit;
 }
 
 /*

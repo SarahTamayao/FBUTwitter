@@ -473,18 +473,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jox-rg-9wi">
-                                <rect key="frame" x="30" y="76" width="354" height="712"/>
+                                <rect key="frame" x="30" y="76" width="354" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="HTb-YS-CiB"/>
+                                </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esx-bs-vg3">
+                                <rect key="frame" x="352" y="286" width="32" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BYw-VA-Fm0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="esx-bs-vg3" firstAttribute="trailing" secondItem="Jox-rg-9wi" secondAttribute="trailing" id="7yI-19-tN1"/>
                             <constraint firstItem="Jox-rg-9wi" firstAttribute="leading" secondItem="4GE-7F-0Be" secondAttribute="leading" constant="30" id="9O6-70-l91"/>
+                            <constraint firstItem="esx-bs-vg3" firstAttribute="top" secondItem="Jox-rg-9wi" secondAttribute="bottom" constant="10" id="Hkx-3h-fhD"/>
                             <constraint firstAttribute="trailing" secondItem="Jox-rg-9wi" secondAttribute="trailing" constant="30" id="ONc-t4-f0R"/>
-                            <constraint firstItem="BYw-VA-Fm0" firstAttribute="bottom" secondItem="Jox-rg-9wi" secondAttribute="bottom" constant="20" id="SQu-fH-nyt"/>
                             <constraint firstItem="Jox-rg-9wi" firstAttribute="top" secondItem="BYw-VA-Fm0" secondAttribute="top" constant="20" id="lWH-zP-Rmy"/>
                         </constraints>
                     </view>
@@ -501,6 +511,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="characterCountLabel" destination="esx-bs-vg3" id="U9T-E2-55i"/>
                         <outlet property="tweetTextView" destination="Jox-rg-9wi" id="erJ-HH-8cu"/>
                     </connections>
                 </viewController>
