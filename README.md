@@ -46,8 +46,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Multiple custom cells in table views.
+2. Dynamically changing table view cells/their content. For ex. with adding images to table view cells when you don't know whether or not there will be images or how many there will be.
 
 ## Video Walkthrough
 
@@ -79,7 +79,7 @@ GIFs created with [Kap](https://getkap.co/).
 
 Describe any challenges encountered while building the app.
 
-I wanted to add the number of replies a tweet had to my tweet cell (along with # of favorites and # of retweets) but reply_count "is only available with the Premium and Enterprise tier products" and so I struggled with why it was returning 0 for a minute.
+I wanted to add the number of replies a tweet had to my tweet cell (along with # of favorites and # of retweets) but reply_count "is only available with the Premium and Enterprise tier products" and so I struggled with why it was returning 0 for a minute. Also, I didn't know that you could have multiple different custom table view cells within a table view so I struggled with how to implement the profile tab before finding this out from my manager (shout-out Kyle).
 
 ## Credits
 
@@ -91,7 +91,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2021] [Ava Crnkovic-Rubsamen]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
