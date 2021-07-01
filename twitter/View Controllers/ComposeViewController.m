@@ -25,11 +25,11 @@
     if (self.repliedToTweet) {
         NSString *username = [@"@" stringByAppendingString:self.repliedToTweet.user.screenName];
         self.tweetTextView.text = [username stringByAppendingString:@" "];
+        
     }
-    
-    
     self.tweetTextView.delegate = self;
     self.tweetTextView.layer.borderWidth = 1;
+    
     UIColor *twitterBlue = [UIColor colorWithRed:29/255.0 green:161/255.0 blue:242/255.0 alpha:1.0];
     self.tweetTextView.layer.borderColor = [twitterBlue CGColor];
     self.tweetTextView.layer.cornerRadius = self.tweetTextView.bounds.size.height / 6;

@@ -13,6 +13,8 @@
 		4666267B268CEA6A0041E4B6 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4666267A268CEA6A0041E4B6 /* UserViewController.m */; };
 		4666267E268D0DE60041E4B6 /* MentionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4666267D268D0DE60041E4B6 /* MentionsViewController.m */; };
 		46662681268D17690041E4B6 /* MentionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46662680268D17690041E4B6 /* MentionCell.m */; };
+		4666268B268E450C0041E4B6 /* ProfileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4666268A268E450C0041E4B6 /* ProfileHeaderCell.m */; };
+		4666268E268E49020041E4B6 /* ProfileTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4666268D268E49020041E4B6 /* ProfileTweetCell.m */; };
 		466A8E20268A60B8000346D4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 466A8E1F268A60B8000346D4 /* User.m */; };
 		466A8E23268A627B000346D4 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 466A8E22268A627B000346D4 /* Tweet.m */; };
 		466A8E26268A6D5C000346D4 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 466A8E25268A6D5C000346D4 /* TweetCell.m */; };
@@ -43,6 +45,10 @@
 		4666267D268D0DE60041E4B6 /* MentionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MentionsViewController.m; sourceTree = "<group>"; };
 		4666267F268D17690041E4B6 /* MentionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MentionCell.h; sourceTree = "<group>"; };
 		46662680268D17690041E4B6 /* MentionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MentionCell.m; sourceTree = "<group>"; };
+		46662689268E450C0041E4B6 /* ProfileHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileHeaderCell.h; sourceTree = "<group>"; };
+		4666268A268E450C0041E4B6 /* ProfileHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileHeaderCell.m; sourceTree = "<group>"; };
+		4666268C268E49020041E4B6 /* ProfileTweetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileTweetCell.h; sourceTree = "<group>"; };
+		4666268D268E49020041E4B6 /* ProfileTweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileTweetCell.m; sourceTree = "<group>"; };
 		466A8E1E268A60B8000346D4 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		466A8E1F268A60B8000346D4 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		466A8E21268A627B000346D4 /* Tweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
@@ -156,6 +162,10 @@
 				466A8E25268A6D5C000346D4 /* TweetCell.m */,
 				4666267F268D17690041E4B6 /* MentionCell.h */,
 				46662680268D17690041E4B6 /* MentionCell.m */,
+				46662689268E450C0041E4B6 /* ProfileHeaderCell.h */,
+				4666268A268E450C0041E4B6 /* ProfileHeaderCell.m */,
+				4666268C268E49020041E4B6 /* ProfileTweetCell.h */,
+				4666268D268E49020041E4B6 /* ProfileTweetCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,7 +318,9 @@
 				46662681268D17690041E4B6 /* MentionCell.m in Sources */,
 				466A8E20268A60B8000346D4 /* User.m in Sources */,
 				466A8E29268A9286000346D4 /* ComposeViewController.m in Sources */,
+				4666268E268E49020041E4B6 /* ProfileTweetCell.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
+				4666268B268E450C0041E4B6 /* ProfileHeaderCell.m in Sources */,
 				466A8E23268A627B000346D4 /* Tweet.m in Sources */,
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
