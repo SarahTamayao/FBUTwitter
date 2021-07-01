@@ -14,9 +14,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tweetContentLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *tweetContentLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+@property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
 
 @end
 
@@ -27,7 +28,7 @@
     // Do any additional setup after loading the view.
     
     self.authorLabel.text = self.tweet.user.name;
-    self.tweetContentLabel.text = self.tweet.text;
+    self.tweetTextView.text = self.tweet.text;
     
     self.usernameLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
     // self.timeLabel.text = [@"・" stringByAppendingString:self.tweet.createdAtString];
