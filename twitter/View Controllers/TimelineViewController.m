@@ -37,16 +37,16 @@
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
     
-    [self loadTweets];
+    [self loadTweets:@"20"];
 }
 - (void)viewWillAppear:(BOOL)animated {
     // so that if you favorite/unfavorite/retweet/unretweet a tweet from the details view it will appear correctly immediately when you return to the home timeline
     [self.tableView reloadData];
 }
 
-- (void) loadTweets {
+- (void) loadTweets: (NSString *) count {
     // Get timeline
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+    [[APIManager shared] getHomeTimelineWithCompletion:count completion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             
@@ -65,7 +65,7 @@
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
 
     // gets data and reloads table view
-    [self loadTweets];
+    [self loadTweets:@"20"];
          
     // Tell the refreshControl to stop spinning
     [refreshControl endRefreshing];
@@ -89,7 +89,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return [self.arrayOfTweets count];
 }
 
 
@@ -149,7 +149,7 @@
 
 - (void)didTweet:(Tweet *)tweet {
     [self.arrayOfTweets addObject:tweet];
-    [self loadTweets];
+    [self loadTweets:@"20"];
     // [self.tableView reloadData];
 }
 
@@ -157,6 +157,15 @@
 - (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user{
     // TODO: Perform segue to profile view controller
     [self performSegueWithIdentifier:@"showUserProfile" sender:user];
+}
+
+// infinite scrolling method
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row + 1 == [self.arrayOfTweets count]){
+        [self loadTweets:[NSString stringWithFormat:@"%lu", ([self.arrayOfTweets count] + 21)]];
+        NSLog(@"%@", [NSString stringWithFormat:@"%lu", [self.arrayOfTweets count]]);
+        
+    }
 }
 
 
