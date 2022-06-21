@@ -44,25 +44,6 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-1. App icon, log in/log out (on iPhone 8)
-
-<img src='https://github.com/ava-cr/FBUTwitter/blob/main/gifs/twitter1.gif' title='Video Walkthrough 1' width='' alt='Video Walkthrough' />
-
-2. Home timeline with tweets (profile pic, tweet details, timestamps, etc), pull-to-refresh, infinite scrolling (iPhone 11)
-
-<img src='https://github.com/ava-cr/FBUTwitter/blob/main/gifs/twitter2.gif' title='Video Walkthrough 2' width='' alt='Video Walkthrough' />
-
-3. Like/unlike, retweet/unretweet, reply to a tweet/compose a tweet with character limit (on iPhone 11)
-
-<img src='https://github.com/ava-cr/FBUTwitter/blob/main/gifs/twitter3.gif' title='Video Walkthrough 3' width='' alt='Video Walkthrough' />
-
-4.  Tab bar to see timeline/mentions/profile view, profile view has user's timeline, auto-layout in different device sizes/rotation (on iPhone 11)
-
-<img src='https://github.com/ava-cr/FBUTwitter/blob/main/gifs/twitter4.gif' title='Video Walkthrough 4' width='' alt='Video Walkthrough' />
-
-5.  Click on tweet to view a tweet details page, click on a user's profile picture to view their profile page, clickable links (on iPhone 11).
-
-<img src='https://github.com/ava-cr/FBUTwitter/blob/main/gifs/twitter5.gif' title='Video Walkthrough 5' width='' alt='Video Walkthrough' />
 
 GIFs created with [Kap](https://getkap.co/).
 
