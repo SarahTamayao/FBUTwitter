@@ -8,37 +8,28 @@ Time spent: **24** hours spent in total
 
 The following **required** functionality is completed:
 
-- [X] User sees app icon in home screen and styled launch screen
-- [X] User can sign in using OAuth login flow
-- [X] User can Logout
-- [X] User can view last 20 tweets from their home timeline
-- [X] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
-- [X] User can pull to refresh.
-- [X] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet.
-- [X] User can compose a new tweet by tapping on a compose button.
-- [X] Using AutoLayout, the Tweet cell should adjust its layout for iPhone 11, Pro and SE device sizes as well as accommodate device rotation.
-- [X] User should display the relative timestamp for each tweet "8m", "7h"
-- [X] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet and favorite.
+- [X] See an app icon in the home screen and a styled launch screen
+- [X] Be able to log in using their Twitter account
+- [X] See at latest the latest 20 tweets for a Twitter account in a Table View
+- [X] Be able to refresh data by pulling down on the Table View
+- [X] Be able to like and retweet from their Timeline view
+- [X] Only be able to access content if logged in
+- [X] Each tweet should display user profile picture, username, screen name, tweet text, timestamp, as well as buttons and labels for favorite, reply, and retweet counts.
+- [X] Compose and post a tweet from a Compose Tweet view, launched from a Compose button on the Nav bar.
+- [X] See Tweet details in a Details view
+- [X] App should render consistently all views and subviews in recent iPhone models and all orientations
 
 The following **optional** features are implemented:
 
-- [X] User can view their profile in a *profile tab*
-  - Contains the user header view: picture and tagline
-  - Contains a section with the users basic stats: # tweets, # following, # followers
-  - [X] Profile view should include that user's timeline
-- [X] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. Refer to [[this guide|unretweeting]] for help on implementing unretweeting.
-- [X] Links in tweets are clickable.
-- [X] User can tap the profile image in any tweet to see another user's profile
-  - Contains the user header view: picture and tagline
-  - Contains a section with the users basic stats: # tweets, # following, # followers
-- [X] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
-- [X] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 280) (**1 point**)
-- [X] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
-- [X] User can reply to any tweet, and replies should be prefixed with the username and the reply_id should be set when posting the tweet (**2 points**)
-- [ ] User sees embedded images in tweet if available
-- [X] User can switch between timeline, mentions, or profile view through a tab bar (**3 points**)
-- [ ] Profile Page: pulling down the profile page should blur and resize the header image. (**4 points**)
-
+- [X] Be able to unlike or un-retweet by tapping a liked or retweeted Tweet button, respectively. (Doing so will decrement the count for each)
+- [X] Click on links that appear in Tweets
+- [ ] See embedded media in Tweets that contain images or videos
+- [X] Reply to any Tweet. Replies should be prefixed with the username. The reply_id should be set when posting the tweet
+- [X] See a character count when composing a Tweet (as well as a warning) (280 characters)
+- [X] Load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client
+- [X] Click on a Profile image to reveal another user’s profile page, including: Header view: picture and tagline and Basic stats: #tweets, #following, #followers
+- [X] Switch between timeline, mentions, or profile view through a tab bar
+- [ ] Profile Page: pulling down the profile page should blur and resize the header image.
 
 The following **additional** features are implemented:
 
